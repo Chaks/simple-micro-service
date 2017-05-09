@@ -11,6 +11,6 @@ public class GreetService {
 	@GET
 	@Produces("text/plain")
 	public Response doGet() {
-		return Response.ok("Halo!!").build();
+		return Response.ok("Hola!!").build();
 	}
 }
