@@ -1,8 +1,8 @@
-package org.simple.micro.service.rest;
+package org.jveda.demos.jaxrs20;
 
 import javax.ws.rs.core.Application;
 import javax.ws.rs.ApplicationPath;
 
-@ApplicationPath("/rest")
+@ApplicationPath("/microservice/v0")
 public class RestApplication extends Application {
 }
