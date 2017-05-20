@@ -8,9 +8,9 @@ import javax.ws.rs.Produces;
 @Path("/greet")
 public class GreetService {
 
-	@GET
-	@Produces("text/plain")
-	public Response doGet() {
-		return Response.ok("Hello!!").build();
-	}
+  @GET
+  @Produces("text/plain")
+  public Response doGet() {
+    return Response.ok("Hello!!").build();
+  }
 }
