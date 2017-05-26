@@ -10,7 +10,8 @@ public class GreetService {
 
   @GET
   @Produces("text/plain")
-  public Response doGet() {
+  public Response doGet() throws InterruptedException {
+    Thread.sleep((long)(Math.random() * 6000)); //To simulate delay!
     return Response.ok("Hello!!").build();
   }
 }
