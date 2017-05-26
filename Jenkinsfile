@@ -7,8 +7,10 @@ node {
 		sh 'mvn clean package -DskipTests'
   	}
 
-	stage('Create Docker Image') {    
-      docker.build("chakravd/microsvc:${env.BUILD_NUMBER}")    
+	stage('Create Docker Image') {
+		docker.withTool("Docker") {
+			docker.build("chakravd/microsvc:${env.BUILD_NUMBER}")
+		}        
   	}
 }
 
