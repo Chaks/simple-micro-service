@@ -7,8 +7,11 @@ node {
 		sh 'mvn clean package -DskipTests'
   	}
 
+	
+	env.DOCKER_SERVER = "${DOCKER_SERVER}";
+
 	docker.withTool("Docker") {
-		withDockerServer(uri: ${DOCKER_SERVER}) {
+		withDockerServer(uri: $DOCKER_SERVER) {
 			stage('Create Docker Image') {
 				docker.build("chakravd/microsvc:${env.BUILD_NUMBER}")
 			}
