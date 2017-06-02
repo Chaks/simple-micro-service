@@ -11,7 +11,7 @@ node {
 	env.DOCKER_SERVER = 'tcp://localhost'
 
 	docker.withTool("Docker") {
-		withDockerServer(uri: $DOCKER_SERVER) {
+		withDockerServer(uri: ${env.DOCKER_SERVER}) {
 			stage('Create Docker Image') {
 				docker.build("chakravd/microsvc:${env.BUILD_NUMBER}")
 			}
