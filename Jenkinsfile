@@ -8,7 +8,7 @@ node {
   	}
 
 	
-	env.DOCKER_SERVER = "${DOCKER_SERVER}";
+	env.DOCKER_SERVER = 'tcp://localhost'
 
 	docker.withTool("Docker") {
 		withDockerServer(uri: $DOCKER_SERVER) {
