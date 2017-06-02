@@ -13,11 +13,11 @@ node {
 	docker.withTool("Docker") {
 		withDockerServer(uri: "${DOCKER_SERVER}") {
 			stage('Create Docker Image') {
-				docker.build("chakravd/microsvc:${env.BUILD_NUMBER}")
+				def image_ = docker.build("chakravd/microsvc:${env.BUILD_NUMBER}")
 			}
 			
 			stage('Push Docker Image') {
-				docker.push()
+				image_.push()
 			}
 		}
 	}
