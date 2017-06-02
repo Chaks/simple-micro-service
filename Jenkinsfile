@@ -14,6 +14,7 @@ node {
 		withDockerServer(uri: "${DOCKER_SERVER}") {
 			stage('Create Docker Image') {
 				def image_ = docker.build("chakravd/microsvc:${env.BUILD_NUMBER}")
+				image_.push()
 			}
 			
 			stage('Push Docker Image') {
