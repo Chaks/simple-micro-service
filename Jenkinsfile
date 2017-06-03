@@ -13,13 +13,12 @@ node {
 	docker.withTool("Docker") {
 		withDockerServer(uri: "${DOCKER_SERVER}") {
 			withDockerRegistry(url: 'https://registry.hub.docker.com', credentialsId: 'docker-registry-login') {
-				def image_
 				stage('Create Docker Image') {
-					image_ = docker.build("chakravd/microsvc:${env.BUILD_NUMBER}")
+					docker.build("chakravd/microsvc:${env.BUILD_NUMBER}")
 				}
 			
 				stage('Push Docker Image') {
-					image_.push()
+					docker.build("chakravd/microsvc:${env.BUILD_NUMBER}").push()
 				}
 			}
 		}
