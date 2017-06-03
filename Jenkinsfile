@@ -12,7 +12,7 @@ node {
 
 	docker.withTool("Docker") {
 		withDockerServer(uri: "${DOCKER_SERVER}") {
-			withDockerRegistry(url: 'https://registry.hub.docker.com', credentialsId: 'docker-registry-login') {
+			withDockerRegistry(url: 'https://index.docker.io/v1/', credentialsId: 'docker-registry-login') {
 				def image_
 				stage('Create Docker Image') {
 					image_ = docker.build("chakravd/microsvc:${env.BUILD_NUMBER}")
