@@ -1,3 +1,4 @@
+#!groovy​
 node {
 	env.JAVA_HOME = tool 'Java8'
 	env.PATH = "${tool 'Maven3'}/bin:${env.PATH}"
@@ -13,10 +14,11 @@ node {
 			withDockerRegistry(url: 'https://index.docker.io/v1/', credentialsId: 'docker-registry-login') {
 				def image_
 				stage('Create Docker Image')
-				image_ = docker.build("chakravd/microsvc:${env.BUILD_NUMBER}")
+				//image_ = docker.build("chakravd/microsvc:${env.BUILD_NUMBER}")
+				image_ = docker.build("chakravd/microsvc:latest")
 
-				stage('Push Docker Image')
-				image_.push("latest")
+				//stage('Push Docker Image')
+				//image_.push("latest")
 			}
 		}
 	}
