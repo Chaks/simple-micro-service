@@ -17,8 +17,8 @@ node {
 				//image_ = docker.build("chakravd/microsvc:${env.BUILD_NUMBER}")
 				image_ = docker.build("chakravd/microsvc:latest")
 
-				//stage('Push Docker Image')
-				//image_.push("latest")
+				stage('Push Docker Image')
+				image_.push("latest")
 			}
 		}
 	}
