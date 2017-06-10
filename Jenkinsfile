@@ -23,7 +23,7 @@ node {
 		}
 	}
 
-	stage("Deploy to OpenShift 3")
-	openshiftDeploy(deploymentConfig: 'microsvc')
-	openshiftScale(deploymentConfig: 'microsvc',replicaCount: '2')
+	//stage("Deploy to OpenShift 3")
+	//openshiftDeploy(deploymentConfig: 'microsvc')
+	//openshiftScale(deploymentConfig: 'microsvc',replicaCount: '2')
 }
